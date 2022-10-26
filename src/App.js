@@ -14,6 +14,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import { ErrorNotFound } from "./ErrorNotFound";
 import  ProductDetail  from "./ProductDetail";
 import Profile from "./Profile";
+import ContactUs from "./ContactUs";
 
 const promise = loadStripe(
   "pk_test_51HPvU9DFg5koCdLGJJbNo60QAU99BejacsvnKvT8xnCu1wFLCuQP3WBArscK3RvSQmSIB3N0Pbsc7TtbQiJ1vaOi00X9sIbazL"
@@ -59,6 +60,10 @@ function App() {
           <Route exact path="/profile">
           <Header />
             <Profile />
+          </Route>
+          <Route exact path="/contactUs">
+          <Header />
+            <ContactUs />
           </Route>
           <Route exact path="/checkout">
             <Header />

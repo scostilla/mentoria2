@@ -41,6 +41,13 @@
     width: 98%;
   }
 
+  .login__container > form > textarea {
+    height: 30px;
+    margin-bottom: 10px;
+    background-color: white;
+    width: 98%;
+  }
+
 .login__container > p {
     margin-top: 15px;
     font-size: 12px;
