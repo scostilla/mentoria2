@@ -44,11 +44,12 @@ function Header() {
           </div>
         </Link>
         
-
+        <Link to='/profile'>
         <div className="header__option">
           <span className="header__optionLineOne">Your</span>
-          <span className="header__optionLineTwo">Prime</span>
+          <span className="header__optionLineTwo">Profile</span>
         </div>
+        </Link>
 
         <Link to="/checkout">
           <div className="header__optionBasket">
