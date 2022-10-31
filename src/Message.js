@@ -11,7 +11,7 @@ function Profile() {
     <div>
       <div className="payment">
         <div className="payment__container">
-          <h1>Message Sended</h1>
+          <h1>Message Sent</h1>
           <div className='payment__section'>
                     <div className='payment__title'>
                         <h3>First Name</h3>
