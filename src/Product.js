@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./Header";
 import "./Product.css";
 import { useStateValue } from "./StateProvider";
@@ -8,11 +8,11 @@ import ProductDetail from "./ProductDetail";
 
 function Product({ id, title, image, price, rating }) {
   const [{ basket }, dispatch] = useStateValue();
-  const [getId, setId] = useStateValue();
-  const [getTitle, setTitle] = useStateValue();
-  const [getImage, setImage] = useStateValue();
-  const [getPrice, setPrice] = useStateValue();
-  const [getRating, setRating] = useStateValue();
+  const [getId, setId] = useState();
+  const [getTitle, setTitle] = useState();
+  const [getImage, setImage] = useState();
+  const [getPrice, setPrice] = useState();
+  const [getRating, setRating] = useState();
 
   const setDetails = () => {
     setId(id);
@@ -20,6 +20,7 @@ function Product({ id, title, image, price, rating }) {
     setImage(image);
     setPrice(price);
     setRating(rating);
+    console.log("DATOS REGISTRADOS: "+getId +" - " + getTitle + " - " + getImage+" - " + getPrice + " - " + getRating);
   };
 
   const addToBasket = () => {
