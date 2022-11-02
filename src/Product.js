@@ -8,19 +8,12 @@ import ProductDetail from "./ProductDetail";
 
 function Product({ id, title, image, price, rating }) {
   const [{ basket }, dispatch] = useStateValue();
-  const [getId, setId] = useState();
-  const [getTitle, setTitle] = useState();
-  const [getImage, setImage] = useState();
-  const [getPrice, setPrice] = useState();
-  const [getRating, setRating] = useState();
+
+  const [getUrl, setUrl] = useState();
 
   const setDetails = () => {
-    setId(id);
-    setTitle(title);
-    setImage(image);
-    setPrice(price);
-    setRating(rating);
-    console.log("DATOS REGISTRADOS: "+getId +" - " + getTitle + " - " + getImage+" - " + getPrice + " - " + getRating);
+
+    setUrl("/ProductDetail/?id="+id+"&title="+title+"&image="+image+"&price="+price+"&rating="+rating);
   };
 
   const addToBasket = () => {
@@ -43,9 +36,9 @@ function Product({ id, title, image, price, rating }) {
     <div className="product">
       <div className="product__info">
           <div>
-            <Link to="./ProductDetail">
-              <p onMouseEnter={setDetails}>{title}</p>
-            </Link>
+          <Link to={getUrl}>
+  <p onMouseEnter={setDetails}>{title}</p>
+</Link>
           </div>
 
         <p className="product__price">

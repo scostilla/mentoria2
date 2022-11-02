@@ -2,11 +2,17 @@ import React from "react";
 import "./Checkout.css";
 import { useStateValue } from "./StateProvider";
 import CheckoutProduct from "./CheckoutProduct";
+import { useLocation } from 'react-router-dom'
 
-function ProductDetail({ id, title, image, price, rating }) {
-  const [{ basket, user }, dispatch] = useStateValue();
-  /* {dispatch(product)}; */
-  console.log(id, title, image, price, rating);
+function ProductDetail() {
+  let { search } = useLocation();
+  let query = new URLSearchParams(search);
+  const id = query.get("id");
+  const title = query.get("title");
+  const image = query.get("image");
+  const price = query.get("price");
+  const rating = query.get("rating");
+  
 
   return (
     <div className="checkout">
@@ -27,17 +33,7 @@ function ProductDetail({ id, title, image, price, rating }) {
               price={price}
               rating={rating}
               hideButton={true}
-            />
-          {/* {basket.map(item => (
-            <CheckoutProduct
-              id={item.id}
-              title={item.title}
-              image={item.image}
-              price={item.price}
-              rating={item.rating}
-              hideButton={true}
-            />
-          ))} */}
+            /> 
         </div>
       </div>
     </div>
