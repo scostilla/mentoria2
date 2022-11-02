@@ -2,7 +2,6 @@ import React from "react";
 import "./Checkout.css";
 import "./Payment.css";
 import { useStateValue } from "./StateProvider";
-import CheckoutProduct from "./CheckoutProduct";
 
 function Profile() {
   const [{ basket, user }, dispatch] = useStateValue();
@@ -17,7 +16,7 @@ function Profile() {
                         <h3>Username</h3>
                     </div>
                     <div className='payment__address'>
-                        <p>{user?.email}</p>
+                        <p>{!user ? 'User not logged in' : user.email}</p>
                     </div>
                 </div>
                 <div className='payment__section'>
@@ -25,7 +24,7 @@ function Profile() {
                         <h3>Address</h3>
                     </div>
                     <div className='payment__address'>
-                        <p>123 React Lane</p>
+                    <p>{!user ? '' : '123 React Lane'}</p>
                     </div>
                 </div>
                 <div className='payment__section'>
@@ -33,7 +32,7 @@ function Profile() {
                         <h3>City</h3>
                     </div>
                     <div className='payment__address'>
-                        <p>Los Angeles, CA</p>
+                        <p>{!user ? '' : 'Los Angeles, CA'}</p>
                     </div>
                 </div>
         </div>
