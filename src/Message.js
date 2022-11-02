@@ -2,10 +2,16 @@ import React from "react";
 import "./Checkout.css";
 import "./Payment.css";
 import { useStateValue } from "./StateProvider";
-import CheckoutProduct from "./CheckoutProduct";
+import { useLocation } from 'react-router-dom'
 
-function Profile() {
+function Message() {
   const [{ basket, user }, dispatch] = useStateValue();
+  let { search } = useLocation();
+  let query = new URLSearchParams(search);
+  const firstName = query.get("firstName");
+  const lastName = query.get("lastName");
+  const email = query.get("email");
+  const message = query.get("message");
 
   return (
     <div>
@@ -17,7 +23,7 @@ function Profile() {
                         <h3>First Name</h3>
                     </div>
                     <div className='payment__address'>
-                        {/* <p>{firstName}</p> */}
+                        <p>{firstName}</p>
                     </div>
                 </div>
                 <div className='payment__section'>
@@ -25,7 +31,7 @@ function Profile() {
                         <h3>Last Name</h3>
                     </div>
                     <div className='payment__address'>
-                        {/* <p>{lastName}</p> */}
+                        <p>{lastName}</p>
                     </div>
                 </div>
                 <div className='payment__section'>
@@ -33,7 +39,7 @@ function Profile() {
                         <h3>Email</h3>
                     </div>
                     <div className='payment__address'>
-                        {/* <p>{email}</p> */}
+                        <p>{email}</p>
                     </div>
                 </div>
                 <div className='payment__section'>
@@ -41,7 +47,7 @@ function Profile() {
                         <h3>Message</h3>
                     </div>
                     <div className='payment__address'>
-                        {/* <p>{message}</p> */}
+                        <p>{message}</p>
                     </div>
                 </div>
         </div>
@@ -50,4 +56,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+export default Message;

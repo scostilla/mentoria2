@@ -12,8 +12,18 @@ function Product({ id, title, image, price, rating }) {
   const [getUrl, setUrl] = useState();
 
   const setDetails = () => {
-
-    setUrl("/ProductDetail/?id="+id+"&title="+title+"&image="+image+"&price="+price+"&rating="+rating);
+    setUrl(
+      "/ProductDetail/?id=" +
+        id +
+        "&title=" +
+        title +
+        "&image=" +
+        image +
+        "&price=" +
+        price +
+        "&rating=" +
+        rating
+    );
   };
 
   const addToBasket = () => {
@@ -35,11 +45,11 @@ function Product({ id, title, image, price, rating }) {
   return (
     <div className="product">
       <div className="product__info">
-          <div>
+        <div>
           <Link to={getUrl}>
-  <p onMouseEnter={setDetails}>{title}</p>
-</Link>
-          </div>
+            <p onMouseEnter={setDetails}>{title}</p>
+          </Link>
+        </div>
 
         <p className="product__price">
           <small>$</small>
@@ -54,7 +64,16 @@ function Product({ id, title, image, price, rating }) {
         </div>
       </div>
 
-      <img src={image} alt="" />
+      {/* <img  src={image} alt="" onMouseEnter={setDetails}/> */}
+      <Link to={getUrl}>
+        <img className="product__img"
+          width="50%"
+          max-height="200px"
+          src={image}
+          alt=""
+          onMouseEnter={setDetails}
+        />
+      </Link>
 
       <button onClick={addToBasket}>Add to Basket</button>
     </div>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Login.css";
 import { Link, useHistory } from "react-router-dom";
 import { auth } from "./firebase";
+import Message from "./Message";
 
 function ContactUs() {
   const history = useHistory();
@@ -9,21 +10,12 @@ function ContactUs() {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [getUrl, setUrl] = useState("");
 
   const sendForm = (e) => {
     e.preventDefault();
-
-    alert(
-      "Nombre: " +
-        firstName +
-        " - Apellido: " +
-        lastName +
-        " - Correo: " +
-        email +
-        " - Mensaje: " +
-        message
-    );
-    /* link to message.js */
+    setUrl("/Message/?firstName="+firstName+"&lastName="+lastName+"&email="+email+"&message="+message);
+    console.log(getUrl);
   };
 
   return (
@@ -66,13 +58,14 @@ function ContactUs() {
             onChange={(e) => setMessage(e.target.value)}
           />
 
+  <Link to={getUrl}>
           <button
             type="submit"
             onClick={sendForm}
             className="login__signInButton"
           >
             Send Message
-          </button>
+          </button></Link>
         </form>
       </div>
     </div>
