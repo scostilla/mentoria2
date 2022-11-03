@@ -66,7 +66,7 @@ function Product({ id, title, image, price, rating }) {
 
       {/* <img  src={image} alt="" onMouseEnter={setDetails}/> */}
       <Link to={getUrl}>
-        <img className="product__img"
+        <img
           width="50%"
           max-height="200px"
           src={image}
