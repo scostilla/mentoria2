@@ -7,10 +7,6 @@ import Message from "./Message";
 
 function ContactUs() {
   const history = useHistory();
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
   const [getUrl, setUrl] = useState("");
 
   const [data, setData] = useState({
